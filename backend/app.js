@@ -35,6 +35,6 @@ app.use('/api/employer', employerRoutes);
 app.get('/', (req, res) => res.render('index'));
 
 // 404 fallback
-app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
+app.use((req, res) => res.status(404).json({ message: 'This route is not found' }));
 
 module.exports = app;
