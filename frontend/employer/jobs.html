@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Jobs - HireSmart</title>
+    <link rel="stylesheet" href="../css/main.css">
+       <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="/index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="jobs.html" class="active">Jobs</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="notificationContainer"></div>
+    <main class="employer-jobs">
+        <div class="container">
+            <div class="page-header">
+                <h1>Manage Job Postings</h1>
+                <a href="create-job.html" class="btn btn-primary">Create New Job</a>
+            </div>
+            
+            
+            <div class="job-postings-list" id="jobListings">
+                <!-- Will be populated by JavaScript -->
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script type="module" src="../js/employer.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

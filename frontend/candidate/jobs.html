@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Jobs - HireSmart</title>
+    <link rel="stylesheet" href="../css/main.css">
+       <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="/index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="jobs.html" class="active">Browse Jobs</a></li>
+                    <li><a href="applications.html">My Applications</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="candidate-jobs">
+        <div class="container">
+            <div class="page-header">
+                <h1>Available Job Opportunities</h1>
+                <div class="header-actions">
+                    <button id="refreshJobs" class="btn btn-secondary">Refresh Jobs</button>
+                </div>
+            </div>
+
+            <div class="job-filters">
+                <div class="filter-group" style="flex-direction: row;">
+                    <label for="searchJobs">Search:</label>
+                    <input type="text" id="searchJobs" placeholder="Job title, skills...">
+                    <button id="applyFilters" class="btn btn-primary">Search</button>
+                </div>
+
+            </div>
+
+            <div class="job-listings" id="jobListings">
+                <!-- Jobs will be loaded here -->
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/candidate.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

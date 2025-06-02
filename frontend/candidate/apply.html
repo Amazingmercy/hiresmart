@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Job - HireSmart</title>
+    <link rel="stylesheet" href="../css/main.css">
+       <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="/index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="jobs.html">Browse Jobs</a></li>
+                    <li><a href="applications.html">My Applications</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+     <div id="notificationContainer"></div>
+    <main class="apply-job">
+        <div class="container">
+
+            <div class="apply-header">
+                <h1>Apply for <span id="applyJobTitle"></span></h1>
+                <p>Complete the form below to submit your application</p>
+            </div>
+
+            <div class="apply-content">
+                <form id="applyForm" class="application-form">
+                    <input type="hidden" id="jobId" name="jobId">
+                    <input type="hidden" id="jobTitle" name="jobTitle">
+
+                    <div class="form-section">
+                        <h2>Application Documents</h2>
+                        <div class="form-group">
+                            <label for="resume">Resume/CV (PDF or DOCX)</label>
+                            <div class="file-upload">
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                                <label for="resume" class="btn btn-secondary">
+                                    <i class="fas fa-upload"></i> Choose File
+                                </label>
+                                <span id="resumeFileName">No file chosen</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </div>
+                </form>
+
+                <div class="application-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Application Tips</h3>
+                        <ul class="tips-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Tailor your resume to match the job requirements</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Highlight relevant skills and experience</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Keep your cover letter concise and targeted</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Double-check for spelling and grammar errors</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/candidate.js"></script>
+    <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

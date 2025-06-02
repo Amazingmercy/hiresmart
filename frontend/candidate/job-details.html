@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - HireSmart</title>
+    <link rel="stylesheet" href="../css/main.css">
+       <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="/index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="jobs.html">Browse Jobs</a></li>
+                    <li><a href="applications.html">My Applications</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="job-details">
+        <div class="container">
+            <div class="back-link">
+                <a href="jobs.html"><i class="fas fa-arrow-left"></i> Back to Jobs</a>
+            </div>
+
+            <div class="job-details-header">
+                <div>
+                    <h1 id="jobTitle">Job Title</h1>
+                    <div class="job-meta">
+                        <span id="jobCompany">Company Name</span>
+                        <span id="jobLocation"><i class="fas fa-map-marker-alt"></i> Location</span>
+                        <span id="jobType">Full-time</span>
+                    </div>
+                </div>
+                <div class="job-actions">
+                    <a href="#" id="saveJobBtn" class="btn btn-secondary"><i class="far fa-bookmark"></i> Save</a>
+                    <a href="apply.html" id="applyNowBtn" class="btn btn-primary">Apply Now</a>
+                </div>
+            </div>
+
+            <div class="job-details-content">
+                <div class="job-main">
+                    <div class="job-section">
+                        <h2>Job Description</h2>
+                        <div id="jobDescription" class="job-description"></div>
+                    </div>
+
+                    <div class="job-section">
+                        <h2>Responsibilities</h2>
+                        <ul id="jobResponsibilities" class="responsibilities-list"></ul>
+                    </div>
+
+                    <div class="job-section">
+                        <h2>Requirements</h2>
+                        <ul id="jobRequirements" class="requirements-list"></ul>
+                    </div>
+                </div>
+
+                <div class="job-sidebar">
+                    <div class="sidebar-card">
+                        <h3>Job Overview</h3>
+                        <div class="overview-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <span>Date Posted</span>
+                                <strong id="jobPostedDate">Loading...</strong>
+                            </div>
+                        </div>
+                        <div class="overview-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span>Experience</span>
+                                <strong id="jobExperience">Loading...</strong>
+                            </div>
+                        </div>
+                        <div class="overview-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <span>Salary</span>
+                                <strong id="jobSalary">Loading...</strong>
+                            </div>
+                        </div>
+                        <div class="overview-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span>Job Type</span>
+                                <strong id="jobTypeFull">Loading...</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Required Skills</h3>
+                        <div id="jobSkills" class="skills-list"></div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>Share This Job</h3>
+                        <div class="share-buttons">
+                            <a href="#" class="btn btn-share linkedin"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="btn btn-share twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn btn-share facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="btn btn-share email"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/candidate.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Load job details when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const jobId = urlParams.get('id');
+            
+            if (jobId) {
+                loadJobDetails(jobId);
+                
+                // Set up apply button with job ID
+                const applyBtn = document.getElementById('applyNowBtn');
+                applyBtn.href = `apply.html?jobId=${jobId}`;
+            } else {
+                notification.error('Error', 'No job specified');
+                setTimeout(() => {
+                    window.location.href = 'jobs.html';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>

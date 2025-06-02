@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Dashboard - HireSmart</title>
+    <link rel="stylesheet" href="../css/main.css">
+       <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="/index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="#" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="employer-dashboard">
+        <div class="employer-container">
+            <h1 style="margin: 50px;">Employer Dashboard</h1>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Active Jobs</h3>
+                    <div class="stat-value" id="activeJobs">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Applicants</h3>
+                    <div class="stat-value" id="totalApplicants">0</div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <a href="create-job.html" class="action-btn">Create New Job</a>
+                <a href="jobs.html" class="action-btn">Manage Jobs</a>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer> -->
+ 
+    <script type="module" src="../js/employer.js"></script>
+    <!-- <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script> -->
+</body>
+</html>

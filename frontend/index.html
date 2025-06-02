@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireSmart - Smart Recruitment Platform</title>
+    <link rel="stylesheet" href="css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo"><a href="index.html">HireSmart</a></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="auth/login.html">Login</a></li>
+                    <li><a href="auth/register.html">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="notificationContainer"></div>
+
+    <main class="landing-main">
+        <section class="hero">
+            <div class="container">
+                <h1>Smart Hiring Made Simple</h1>
+                <p>Automated recruitment screening powered by AI</p>
+                <div class="cta-buttons">
+                    <a href="auth/register.html?role=employer" class="btn btn-primary">For Employers</a>
+                    <a href="auth/register.html?role=candidate" class="btn btn-secondary">For Candidates</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose HireSmart?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>AI-Powered Screening</h3>
+                        <p>Automatically analyze and score candidates based on job requirements.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏱️</div>
+                        <h3>Save Time</h3>
+                        <p>Reduce manual screening time by up to 80% with our smart algorithms.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Better Matches</h3>
+                        <p>Find candidates that truly match your job requirements and culture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/notifications.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
