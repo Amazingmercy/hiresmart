@@ -7,15 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if (!token || !user || user.role !== "candidate") {
-    window.location.href = "../auth/login.html";
-    return;
-  }
+  // if (!token || !user || user.role !== "candidate") {
+  //   window.location.href = "../auth/login.html";
+  //   return;
+  // }
 
   // Set user name if available
-  const userNameElement = document.getElementById("userName");
-  if (userNameElement) {
-    userNameElement.textContent = user.name;
+  const fullNameElement = document.getElementById("fullName");
+  if (fullNameElement) {
+    fullNameElement.textContent = user.name;
   }
 
   // Load candidate dashboard data
@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const jobTitle = params.get("jobTitle");
 
     document.getElementById("jobTitle").value = jobTitle;
+    document.getElementById("fullName").value = fullName;
+    document.getElementById("email").value = email;
+    document.getElementById("phone").value = phone;
     const titleEl = document.getElementById("applyJobTitle");
     titleEl.textContent = decodeURIComponent(jobTitle);
 
@@ -51,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData();
       formData.append("cv", document.getElementById("resume").files[0]);
       formData.append("jobTitle", jobTitle);
+      formData.append("fullName", fullName);
+      formData.append("email", email);
+      formData.append("phone", phone);
 
       try {
         const response = await fetch(`/api/candidate/jobs/${jobId}/apply`, {
           method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
           body: formData,
         });
 
@@ -129,7 +132,7 @@ async function loadCandidateDashboard() {
     });
 
     const applications = await applicationsResponse.json();
-     const recent = await recentApp.json();
+    const recent = await recentApp.json();
 
     // Load recent applications
     const recentApplicationsContainer = document.getElementById("recentApplications");
@@ -160,18 +163,13 @@ async function loadCandidateDashboard() {
 // Jobs Page Functions
 async function loadAvailableJobs() {
   try {
-    const token = localStorage.getItem("token");
     const jobListingsContainer = document.getElementById("jobListings");
 
     // Show loading state
     jobListingsContainer.innerHTML = '<div class="loading-spinner"></div>';
 
     // Fetch jobs
-    const response = await fetch("/api/candidate/jobs", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch("/api/candidate/jobs");
 
     if (!response.ok) throw new Error("Failed to load jobs");
 
@@ -198,29 +196,25 @@ async function loadAvailableJobs() {
       jobCard.innerHTML = `
                 <div class="job-card-header">
                     <h3>${job.title}</h3>
-                    <span class="job-type ${job.job_type || "full-time"}">${
-        job.job_type ? job.job_type.replace("-", " ") : "Full time"
-      }</span>
+                    <span class="job-type ${job.job_type || "full-time"}">${job.job_type ? job.job_type.replace("-", " ") : "Full time"
+        }</span>
                 </div>
                 <div class="job-meta">
-                    <span><i class="fas fa-briefcase"></i> ${
-                      job.experience_years || 0
-                    }+ years exp</span>
-                    <span><i class="fas fa-money-bill-wave"></i> ₦${
-                      job.salary ? job.salary.toLocaleString() : "Not specified"
-                    }</span>
+                    <span><i class="fas fa-briefcase"></i> ${job.experience_years || 0
+        }+ years exp</span>
+                    <span><i class="fas fa-money-bill-wave"></i> ₦${job.salary ? job.salary.toLocaleString() : "Not specified"
+        }</span>
                 </div>
                 <p class="job-description">${job.description.substring(
-                  0,
-                  200
-                )}...</p>
+          0,
+          200
+        )}...</p>
                 <div class="job-skills">
                     <strong>Required Skills:</strong> ${job.required_skills}
                 </div>
                 <div class="job-actions">
-                    <a href="apply.html?jobId=${job.id}&jobTitle=${
-        job.title
-      }" class="btn btn-primary">Apply Now</a>
+                    <a href="apply.html?jobId=${job.id}&phone=${job.title
+        }" class="btn btn-primary">Apply Now</a>
                 </div>
             `;
 
@@ -237,25 +231,40 @@ async function loadAvailableJobs() {
 
 function setupJobFilters() {
   const applyFiltersBtn = document.getElementById("applyFilters");
+  const searchInput = document.getElementById("searchJobs");
+
+  // Run on button click
   if (applyFiltersBtn) {
     applyFiltersBtn.addEventListener("click", filterJobs);
   }
+
+  // Run on Enter key press inside search input
+  if (searchInput) {
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault(); // prevent form submission if inside a form
+        filterJobs();
+      }
+    });
+  }
 }
+
 
 function filterJobs() {
   const searchTerm = document.getElementById("searchJobs").value.toLowerCase();
 
+  console.log("Filtering jobs with search term:", searchTerm);
+
   document.querySelectorAll(".job-card").forEach((card) => {
+    const jobTitle = card.dataset.title || "";
+    const jobSkills = card.dataset.skills || "";
+
     const searchMatch =
       searchTerm === "" ||
-      title.includes(searchTerm) ||
-      skills.includes(searchTerm);
+      jobTitle.includes(searchTerm) ||
+      jobSkills.includes(searchTerm);
 
-    if (searchMatch) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    card.style.display = searchMatch ? "block" : "none";
   });
 }
 
@@ -314,15 +323,12 @@ async function loadCandidateApplications() {
       if (screeningDetails) {
         screeningHtml = `
           <div class="screening-details">
-            <p><strong>Available Skills:</strong> ${
-              screeningDetails["Available Skills"]?.join(", ") || "N/A"
-            }</p>
-            <p><strong>Missing Skills:</strong> ${
-              screeningDetails["Missing Skills"]?.join(", ") || "N/A"
-            }</p>
-            <p><strong>Qualified:</strong> ${
-              screeningDetails.Qualified ?? "Unknown"
-            }</p>
+            <p><strong>Available Skills:</strong> ${screeningDetails["Available Skills"]?.join(", ") || "N/A"
+          }</p>
+            <p><strong>Missing Skills:</strong> ${screeningDetails["Missing Skills"]?.join(", ") || "N/A"
+          }</p>
+            <p><strong>Qualified:</strong> ${screeningDetails.Qualified ?? "Unknown"
+          }</p>
           </div>
         `;
       }

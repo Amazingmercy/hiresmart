@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Job - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
-       <link rel="stylesheet" href="../css/auth.css">
+    <title>Create Job - Hirerify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employer.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-removebg-preview.png" alt="Hirerify Logo" height="50" width="50">
+                Hirerify
+            </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
                     <li><a href="jobs.html">Jobs</a></li>
                     <li><a href="#" id="logout">Logout</a></li>
                 </ul>
@@ -24,7 +30,7 @@
     <div id="notificationContainer"></div>
     <main class="create-job">
         <div class="container">
-            <h1>Create New Job Posting</h1>
+            <h1>Create New Job</h1>
             
             <form id="createJobForm" class="job-form">
                 <div class="form-row">
@@ -56,7 +62,7 @@
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="experienceYears">Years of Experience*</label>
+                        <label for="experienceYears">Minimum Required Years of Experience*</label>
                         <input type="number" id="experienceYears" name="experience_years" min="0" required>
                     </div>
                     

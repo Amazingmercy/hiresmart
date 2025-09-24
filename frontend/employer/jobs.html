@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Jobs - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
-       <link rel="stylesheet" href="../css/auth.css">
+    <title>Manage Jobs - Hirerify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employer.css">
+</head>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
+      <header class="site-header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-removebg-preview.png" alt="Hirerify Logo" height="50" width="50">
+                Hirerify
+            </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="dashboard.html" >Dashboard</a></li>
                     <li><a href="jobs.html" class="active">Jobs</a></li>
                     <li><a href="#" id="logout">Logout</a></li>
                 </ul>
@@ -29,7 +36,6 @@
                 <a href="create-job.html" class="btn btn-primary">Create New Job</a>
             </div>
             
-            
             <div class="job-postings-list" id="jobListings">
                 <!-- Will be populated by JavaScript -->
                 <div class="loading-spinner"></div>
@@ -43,11 +49,19 @@
         </div>
     </footer>
 
-
-
-    <script type="module" src="../js/employer.js"></script>
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     </script>
+    <script src="../js/employer.js" type="module"></script>
 </body>
 </html>

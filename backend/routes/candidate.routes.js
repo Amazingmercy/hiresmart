@@ -5,7 +5,7 @@ const candidateController = require('../controllers/candidate.controller');
 const { authenticate, authorizeRoles } = require('../middlewares/auth.middleware');
 const fileUploadMiddleware = require('../middlewares/upload.middleware');
 
-router.use(authenticate, authorizeRoles('candidate'));
+// router.use(authenticate, authorizeRoles('candidate'));
 
 router.get('/jobs', candidateController.viewJobs);
 router.post('/jobs/:jobId/apply', fileUploadMiddleware, candidateController.applyToJob);

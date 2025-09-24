@@ -12,12 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (token && user) {
     // Replace with Dashboard + Logout
     navList.innerHTML = `
-      <li><a href="${ user.role === 'employer' 
-         ? '/employer/dashboard.html' 
-         : '/candidate/dashboard.html'}">Dashboard</a></li>
-      <li><a href="#" id="logout">Logout</a></li>
+      <li><a href="/employer/dashboard.html" class="nav-link">Dashboard</a></li>
     `;
- } 
+    } 
 // else {
 //     // Default: Login/Register
 //     navList.innerHTML = `
@@ -26,19 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //     `;
 //   }
 
-    // Handle role toggle on registration page
-    const roleButtons = document.querySelectorAll('.role-btn');
-    if (roleButtons.length > 0) {
-        roleButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                roleButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                document.getElementById('role').value = this.dataset.role;
-                document.getElementById('roleDisplay').textContent = 
-                    this.dataset.role === 'employer' ? 'an Employer' : 'a Candidate';
-            });
-        });
-    }
 
     // Handle registration form submission
     const registerForm = document.getElementById('registerForm');

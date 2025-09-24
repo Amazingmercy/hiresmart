@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <title>Login - Hirerify</title>
+      <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="register.html">Register</a></li>
-                </ul>
-            </nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                    <!-- <i class="fas fa-rocket logo-icon"></i> -->
+                     <img src="../images/logo-removebg-preview.png" alt="" height="50px" width="50px">
+                    Hirerify
+            </a>
+            
         </div>
     </header>
 
@@ -23,7 +24,6 @@
     <main class="auth-main">
         <div class="auth-container">
             <h1>Welcome Back</h1>
-            <p>Login to your HireSmart account</p>
             
             <form id="loginForm" class="auth-form">
                 <div class="form-group">
@@ -46,6 +46,15 @@
         </div>
     </main>
 
-    <script type="module" src="../js/auth.js"></script>
+      <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Hirerify. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+        <script src="../js/auth.js" type="module"></script>
 </body>
 </html>

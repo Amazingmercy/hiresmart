@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employer Dashboard - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
-       <link rel="stylesheet" href="../css/auth.css">
+    <title>Employer Dashboard - Hirerify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employer.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-removebg-preview.png" alt="Hirerify Logo" height="50" width="50">
+                Hirerify
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="dashboard.html" class="active">Dashboard</a></li>
@@ -23,7 +29,6 @@
 
     <main class="employer-dashboard">
         <div class="employer-container">
-            <h1 style="margin: 50px;">Employer Dashboard</h1>
             
             <div class="dashboard-stats">
                 <div class="stat-card">
@@ -34,25 +39,72 @@
                     <h3>Total Applicants</h3>
                     <div class="stat-value" id="totalApplicants">0</div>
                 </div>
+                <div class="stat-card">
+                    <h3>Interviews Scheduled</h3>
+                    <div class="stat-value" id="interviewsScheduled">0</div>
+                </div>
             </div>
             
-            <div class="quick-actions">
-                <a href="create-job.html" class="action-btn">Create New Job</a>
-                <a href="jobs.html" class="action-btn">Manage Jobs</a>
-            </div>
             
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>New Applicant</h4>
+                            <p>John Doe applied for Senior Developer position</p>
+                            <small>2 hours ago</small>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Interview Scheduled</h4>
+                            <p>Interview with Jane Smith for Marketing Manager</p>
+                            <small>Yesterday</small>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Job Published</h4>
+                            <p>UX Designer position is now live</p>
+                            <small>2 days ago</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </main>
 
-    <!-- <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+            <p>&copy; <span id="currentYear"></span> Hirerify. All rights reserved.</p>
         </div>
-    </footer> -->
- 
-    <script type="module" src="../js/employer.js"></script>
-    <!-- <script>
+    </footer>
+
+    <script>
+        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script> -->
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+  
+    </script>
+    <script src="../js/employer.js" type="module"></script>
 </body>
 </html>

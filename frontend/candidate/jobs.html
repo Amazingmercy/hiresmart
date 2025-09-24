@@ -3,41 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Browse Jobs - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
-       <link rel="stylesheet" href="../css/auth.css">
+    <title>Edit Job - Hirerify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/employer.css">
+    <link rel="stylesheet" href="../css/candidate.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="jobs.html" class="active">Browse Jobs</a></li>
-                    <li><a href="applications.html">My Applications</a></li>
-                    <li><a href="#" id="logout">Logout</a></li>
-                </ul>
-            </nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-removebg-preview.png" alt="Hirerify Logo" height="50" width="50">
+                Hirerify
+            </a>
         </div>
     </header>
 
     <main class="candidate-jobs">
         <div class="container">
             <div class="page-header">
-                <h1>Available Job Opportunities</h1>
+                <h1>All Available Jobs</h1>
                 <div class="header-actions">
                     <button id="refreshJobs" class="btn btn-secondary">Refresh Jobs</button>
                 </div>
             </div>
 
             <div class="job-filters">
-                <div class="filter-group" style="flex-direction: row;">
+                <div class="filter-group">
                     <label for="searchJobs">Search:</label>
                     <input type="text" id="searchJobs" placeholder="Job title, skills...">
                     <button id="applyFilters" class="btn btn-primary">Search</button>
                 </div>
-
             </div>
 
             <div class="job-listings" id="jobListings">
@@ -53,9 +51,7 @@
         </div>
     </footer>
 
-    <script type="module" src="../js/candidate.js"></script>
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+    <script> document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="../js/candidate.js" type="module"></script>
 </body>
 </html>

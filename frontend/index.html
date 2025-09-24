@@ -3,71 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HireSmart - Smart Recruitment Platform</title>
-    <link rel="stylesheet" href="css/auth.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Hirerify - AI-Powered Hiring Platform</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="./images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header class="site-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo"><a href="index.html">HireSmart</a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="auth/login.html">Login</a></li>
-                    <li><a href="auth/register.html">Register</a></li>
+            <div class="nav-container">
+                <a href="./index.html" class="logo">
+                    <!-- <i class="fas fa-rocket logo-icon"></i> -->
+                     <img src="./images/logo-removebg-preview.png" alt="" height="50px" width="50px">
+                    Hirerify
+                </a>
+                
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <div class="main-nav">
+                    <ul class="nav-menu">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#process" class="nav-link">How It Works</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="./candidate/jobs.html" class="nav-link">Jobs</a></li>
                 </ul>
-            </nav>
+                </div>
+                
+            </div>
         </div>
     </header>
 
-    <div id="notificationContainer"></div>
-
-    <main class="landing-main">
-        <section class="hero">
-            <div class="container">
-                <h1>Smart Hiring Made Simple</h1>
-                <p>Automated recruitment screening powered by AI</p>
-                <div class="cta-buttons">
-                    <a href="auth/register.html?role=employer" class="btn btn-primary">For Employers</a>
-                    <a href="auth/register.html?role=candidate" class="btn btn-secondary">For Candidates</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h2>Why Choose HireSmart?</h2>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>AI-Powered Screening</h3>
-                        <p>Automatically analyze and score candidates based on job requirements.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⏱️</div>
-                        <h3>Save Time</h3>
-                        <p>Reduce manual screening time by up to 80% with our smart algorithms.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Better Matches</h3>
-                        <p>Find candidates that truly match your job requirements and culture.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> HireSmart. All rights reserved.</p>
+            <div class="hero-content">
+                <span class="hero-badge">AI-Powered Hiring Platform</span>
+                <h1 class="hero-title">Automate Your Hiring Process, <span class="hero-highlight">Find the Best Talent</span></h1>
+                <p class="hero-description">Hirerify streamlines the entire recruitment process, from intelligent CV matching to AI-powered interviews, helping you find the perfect candidate effortlessly.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#pricing" class="btn btn-primary">Get Started Now</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Companies Trust Us</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">Faster Hiring</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9/5</span>
+                        <span class="stat-label">Customer Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title"> Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI-Powered Interviews</h3>
+                    <p>Our AI conducts insightful, structured interviews, saving you countless hours and providing unbiased assessments.</p>
+                </div>
+                <div class="feature-card feature-card-CV">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Intelligent CV Matching</h3>
+                    <p>Automatically scan, analyze, and match resumes to job descriptions with unparalleled accuracy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Analytics</h3>
+                    <p>Gain data-driven insights into your hiring pipeline and candidate performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section process">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Create Your Job Posting</h3>
+                    <p>Simply create and customize your job descriptions and let our platform handle the rest.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI-Powered Resume Screening</h3>
+                    <p>Our AI analyzes candidate CVs and provides detailed match scores instantly.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Automated Interviews</h3>
+                    <p>Conduct intelligent voice interviews with real-time transcription and scoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Hirerify has completely transformed our hiring process. We've reduced our time-to-hire by 70% while improving candidate quality.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>Jane Smith</h4>
+                            <p>HR Director, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The AI interview feature is incredible. It's like having an extra recruiter on the team who never gets tired or biased.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MD</div>
+                        <div class="author-info">
+                            <h4>Michael Davis</h4>
+                            <p>CEO, StartupGrid</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">We've tried multiple hiring platforms, but Hirerify's CV matching accuracy is unmatched. It's worth every penny.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SR</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Talent Acquisition, GlobalCorp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+        <div class="container-pricing">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Basic</h3>
+                        <p class="pricing-price">$0<span class="pricing-period">/yr</span></p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Unlimited job postings</li>
+                        <li><i class="fas fa-check-circle"></i> AI-powered CV screening</li>
+                        <li><i class="fas fa-check-circle"></i> Match score analysis</li>
+                        <li><i class="fas fa-check-circle"></i> Basic applicant management</li>
+                        <li><i class="fas fa-check-circle"></i> Email support</li>
+                    </ul>
+                    <div class="pricing-button">
+                        <a href="./auth/register.html?role=employer&price=basic" class="btn btn-secondary">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Pro</h3>
+                        <p class="pricing-price">$99<span class="pricing-period">/yr</span></p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Everything in Basic plus:</li>
+                        <li><i class="fas fa-check-circle"></i> AI voice interviews</li>
+                        <li><i class="fas fa-check-circle"></i> Interview transcription</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced analytics dashboard</li>
+                        <li><i class="fas fa-check-circle"></i> Priority candidate matching</li>
+                        <li><i class="fas fa-check-circle"></i> Interview scheduling system</li>
+                        <li><i class="fas fa-check-circle"></i> 24/7 premium support</li>
+                    </ul>
+                    <div class="pricing-button">
+                        <a href="./auth/register.html?role=employer&price=pro" class="btn btn-primary">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2 class="cta-title">Ready to Revolutionize Your Hiring?</h2>
+            <p class="cta-description">Join thousands of companies who are finding top talent faster and smarter with Hirerify.</p>
+            <a href="./auth/register.html?role=employer&price=basic" class="btn btn-light">Sign up Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About Hirerify</h3>
+                    <p>We are dedicated to revolutionizing the hiring process through the power of AI, making recruitment faster, smarter, and more efficient.</p>
+                    <div class="social-links">
+                        <a href="/index.html" class="social-link"><img src="./images/logo-removebg-preview.png" alt="" height="55px" width="55px"></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: contact@hirerify.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                    <p>Address: 123 Tech Street, Innovation City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                 <p>&copy; <span id="currentYear"></span> Hirerify. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/notifications.js"></script>
     <script>
+        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileToggle.querySelector('i').classList.add('fa-bars');
+                    mobileToggle.querySelector('i').classList.remove('fa-times');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight current section in navbar
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 60;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.feature-card, .step, .testimonial-card, .pricing-card').forEach(card => {
+            observer.observe(card);
+        });
+
     </script>
-    <script src="js/auth.js"></script>
+    <script src="./js/auth.js" type="module"></script>
 </body>
-</html>

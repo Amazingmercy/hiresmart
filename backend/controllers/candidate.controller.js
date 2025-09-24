@@ -17,7 +17,7 @@ exports.viewJobs = async (req, res) => {
 
 exports.applyToJob = async (req, res) => {
   const { jobId } = req.params;
-  const {jobTitle} = req.body
+  const {jobTitle, fullName, email, phone} = req.body
   const cv = req.files?.cv;
 
 
@@ -30,7 +30,7 @@ exports.applyToJob = async (req, res) => {
 
   console.log(cvPath)
   try {
-    const alreadyApplied = await Application.findOne({ where: { candidate_id: req.user.id, job_id: jobId } });
+    const alreadyApplied = await Application.findOne({ where: { email: email, job_id: jobId } });
     if (alreadyApplied) return res.status(409).json({ message: 'You already applied for  this job' });
 
 
@@ -43,7 +43,9 @@ exports.applyToJob = async (req, res) => {
     const response = JSON.parse(cleanedResponse);
 
     const application = await Application.create({
-      candidate_id: req.user.id,
+      fullName: fullName,
+      email: email,
+      phone: phone,
       job_id: jobId,
       resume_path: cvPath,
       screening_details: response.screening_details,
@@ -52,6 +54,7 @@ exports.applyToJob = async (req, res) => {
 
     res.status(201).json({ message: 'Application submitted', application });
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: 'Failed to submit application', error: err.message });
   }
 };

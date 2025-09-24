@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - HireSmart</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <title>Register - Hirerify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="shortcut icon" href="../images/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="logo"><a href="/index.html">HireSmart</a></div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
+    <header class="site-header header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                    <!-- <i class="fas fa-rocket logo-icon"></i> -->
+                     <img src="../images/logo-removebg-preview.png" alt="" height="50px" width="50px">
+                    Hirerify
+                </a>
         </div>
     </header>
 
-      <div id="notificationContainer"></div>
+    <div id="notificationContainer"></div>
 
-    <main class="auth-main auth-register">
+    <main class="auth-main">
         <div class="auth-container">
-            <h1>Create Your Account</h1>
-            <p>Join HireSmart as <span id="roleDisplay">an Employer</span></p>
+            <h1>Join us</h1>
             
             <form id="registerForm" class="auth-form">
                 <input type="hidden" id="role" name="role" value="employer">
@@ -48,22 +49,38 @@
                     <label for="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required>
                 </div>
-                
-                <div class="role-toggle">
-                    <button type="button" class="role-btn active" data-role="employer">I'm an Employer</button>
-                    <button type="button" class="role-btn" data-role="candidate">I'm a Candidate</button>
-                </div>
+             
                 
                 <button type="submit" class="btn btn-primary">Create Account</button>
             </form>
             
             <div class="auth-footer">
                 <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
             </div>
+
         </div>
     </main>
 
-    
-    <script type="module" src="../js/auth.js"></script>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Hirerify. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script src="../js/auth.js" type="module"></script>
 </body>
 </html>
